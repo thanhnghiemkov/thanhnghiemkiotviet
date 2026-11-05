@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Báo giá KiotViet - Thanh Nghiêm KiotViet | 0931 875 665</title>
+    <meta name="description" content="Bảng báo giá phần mềm quản lý bán hàng KiotViet, máy POS và thiết bị phụ kiện mới nhất 2026. Hỗ trợ tư vấn, cài đặt tận nơi bởi Thanh Nghiêm KiotViet.">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    },
+                    colors: {
+                        kov: {
+                            blue: '#0060AF',
+                            dark: '#004B8D',
+                            light: '#EBF4FC',
+                            green: '#79BA2B',
+                            gray: '#F8FAFC'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html { scroll-behavior: smooth; }
+        .active-tab { background-color: #0060AF !important; color: #FFFFFF !important; }
+        .tab-btn { transition: all 0.2s ease; }
+    </style>
+</head>
+<body class="bg-[#F8FAFC] text-slate-800 antialiased font-sans">
+
+    <!-- Top Navigation Bar -->
+    <header class="bg-white/95 backdrop-blur-md border-b border-slate-200 sticky top-0 z-40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Brand -->
+            <div class="flex items-center space-x-3 cursor-pointer" onclick="window.scrollTo({top:0, behavior:'smooth'})">
+                <div class="bg-kov-blue text-white w-10 h-10 rounded-xl flex items-center justify-center font-extrabold text-xl shadow-md shadow-blue-500/20">
+                    K
+                </div>
+                <div>
+                    <div class="text-xl font-extrabold tracking-tight text-slate-900 flex items-center gap-1">
+                        Báo giá <span class="text-kov-blue">KiotViet</span>
+                    </div>
+                    <div class="text-[11px] text-slate-500 font-medium">Tư vấn báo giá phần mềm & thiết bị bán hàng</div>
+                </div>
+            </div>
+
+            <!-- Nav Links -->
+            <nav class="hidden md:flex items-center space-x-8 text-sm font-semibold text-slate-600">
+                <a href="#goi-phan-mem" class="hover:text-kov-blue transition">Gói phần mềm</a>
+                <a href="#combo" class="hover:text-kov-blue transition">Combo</a>
+                <a href="#thiet-bi" class="hover:text-kov-blue transition">Thiết bị</a>
+                <a href="#voucher" class="hover:text-kov-blue transition">Voucher</a>
+                <a href="#lien-he" class="hover:text-kov-blue transition">Liên hệ</a>
+            </nav>
+
+            <!-- Actions -->
+            <div class="flex items-center space-x-3">
+                <a href="https://www.kiotviet.vn/?ref=thanhnghiem" target="_blank" class="hidden sm:inline-flex px-4 py-2 text-xs font-bold text-slate-700 bg-slate-100 hover:bg-slate-200 rounded-full transition">
+                    Dùng thử miễn phí
+                </a>
+                <a href="#lien-he" class="px-5 py-2.5 text-xs font-bold text-white bg-kov-blue hover:bg-kov-dark rounded-full shadow-lg shadow-blue-500/25 transition">
+                    Nhận báo giá
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero / Package Quick Picker -->
+    <section id="goi-phan-mem" class="py-14 sm:py-20 px-4">
+        <div class="max-w-4xl mx-auto text-center">
+            <span class="text-xs font-bold uppercase tracking-wider text-kov-blue bg-blue-50 px-3 py-1 rounded-full border border-blue-100">
+                TƯ VẤN NHANH • BÁO GIÁ RÕ RÀNG
+            </span>
+            <h1 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-4 tracking-tight">
+                Chọn mức gói phù hợp
+            </h1>
+            <p class="text-slate-500 text-sm sm:text-base mt-2 max-w-xl mx-auto">
+                Chọn gói cho nhu cầu thực tế của bạn để xem chi tiết báo giá và nhận quà tặng ngay bên dưới.
+            </p>
+
+            <!-- 3 Package Tabs -->
+            <div class="inline-flex p-1.5 bg-slate-200/70 rounded-full mt-8 max-w-md w-full justify-between">
+                <button onclick="switchQuickPackage('basic')" id="tab-quick-basic" class="tab-btn w-1/3 py-2 text-xs sm:text-sm font-bold rounded-full text-slate-600">
+                    Hỗ trợ
+                </button>
+                <button onclick="switchQuickPackage('pro')" id="tab-quick-pro" class="tab-btn active-tab w-1/3 py-2 text-xs sm:text-sm font-bold rounded-full shadow-sm">
+                    Chuyên nghiệp
+                </button>
+                <button onclick="switchQuickPackage('vip')" id="tab-quick-vip" class="tab-btn w-1/3 py-2 text-xs sm:text-sm font-bold rounded-full text-slate-600">
+                    Cao cấp
+                </button>
+            </div>
+
+            <!-- Package Card Preview -->
+            <div class="mt-8 bg-white border border-slate-200 rounded-3xl p-8 sm:p-10 shadow-xl shadow-slate-200/50 max-w-xl mx-auto relative overflow-hidden transition-all duration-300">
+                <div class="absolute -right-12 -top-12 w-32 h-32 bg-blue-50 rounded-full pointer-events-none"></div>
+                <h3 id="quick-pkg-title" class="text-2xl font-extrabold text-slate-900">Gói chuyên nghiệp</h3>
+                <p id="quick-pkg-desc" class="text-xs sm:text-sm text-slate-500 mt-2 max-w-md mx-auto">
+                    Cho các cửa hàng vận hành chuyên nghiệp. Phù hợp cho khách chọn máy POS hoặc mô hình chuỗi nhiều chi nhánh.
+                </p>
+
+                <div class="my-6">
+                    <span class="text-xs text-slate-400 font-bold uppercase tracking-wider block">ĐƠN GIÁ THEO THÁNG</span>
+                    <div class="flex items-baseline justify-center gap-1 mt-1">
+                        <span id="quick-pkg-price" class="text-4xl sm:text-5xl font-black text-kov-blue">330.000</span>
+                        <span class="text-lg font-bold text-slate-500">đ</span>
+                    </div>
+                    <div id="quick-pkg-subprice" class="text-xs text-slate-500 mt-1 font-medium">Gói 1 năm: 3.960.000 đ</div>
+                </div>
+
+                <a href="#bang-gia-chi-tiet" class="inline-flex items-center gap-2 text-sm font-bold text-kov-blue hover:text-kov-dark group">
+                    <span>Xem báo giá chi tiết</span>
+                    <i class="fa-solid fa-arrow-right text-xs group-hover:translate-x-1 transition"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Detailed Pricing Table by Industry -->
+    <section id="bang-gia-chi-tiet" class="py-16 px-4 bg-white border-y border-slate-200">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-10">
+                <span class="text-xs font-bold uppercase tracking-wider text-kov-blue bg-blue-50 px-3 py-1 rounded-full">
+                    BẢNG GIÁ CHI TIẾT
+                </span>
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-3">Báo giá theo ngành nghề</h2>
+                <p class="text-slate-500 text-sm mt-1">Lựa chọn lĩnh vực kinh doanh của bạn để xem bảng giá và gói khuyến mãi phù hợp</p>
+            </div>
+
+            <!-- Industry Tabs -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-2 p-1.5 bg-slate-100 rounded-2xl max-w-3xl mx-auto mb-8">
+                <button onclick="switchIndustry('retail')" id="ind-retail" class="industry-tab active-tab py-2.5 px-3 text-xs sm:text-sm font-bold rounded-xl text-center">
+                    🛍️ Phân phối, bán lẻ
+                </button>
+                <button onclick="switchIndustry('fnb')" id="ind-fnb" class="industry-tab py-2.5 px-3 text-xs sm:text-sm font-bold rounded-xl text-center text-slate-600 hover:text-slate-900">
+                    ☕ Ăn uống, giải trí
+                </button>
+                <button onclick="switchIndustry('salon')" id="ind-salon" class="industry-tab py-2.5 px-3 text-xs sm:text-sm font-bold rounded-xl text-center text-slate-600 hover:text-slate-900">
+                    💇 Sức khỏe, làm đẹp
+                </button>
+                <button onclick="switchIndustry('hotel')" id="ind-hotel" class="industry-tab py-2.5 px-3 text-xs sm:text-sm font-bold rounded-xl text-center text-slate-600 hover:text-slate-900">
+                    🏨 Lưu trú, giải trí
+                </button>
+            </div>
+
+            <!-- Pricing Table Container -->
+            <div class="overflow-x-auto rounded-2xl border border-slate-200 shadow-sm bg-white">
+                <table class="w-full text-left border-collapse min-w-[700px]">
+                    <thead>
+                        <tr class="bg-slate-50 border-b border-slate-200">
+                            <th class="p-4 sm:p-5 text-xs font-extrabold text-slate-500 uppercase tracking-wider w-1/4">Thời hạn</th>
+                            <th class="p-4 sm:p-5 text-xs font-extrabold text-slate-500 uppercase tracking-wider w-1/4">
+                                <div>Gói Hỗ Trợ</div>
+                                <div id="hdr-price-basic" class="text-kov-blue text-sm font-black mt-0.5">210.000 đ/tháng</div>
+                            </th>
+                            <th class="p-4 sm:p-5 text-xs font-extrabold text-slate-500 uppercase tracking-wider w-1/4 bg-blue-50/50">
+                                <div class="flex items-center gap-1.5">
+                                    <span>Gói Chuyên Nghiệp</span>
+                                    <span class="bg-blue-600 text-white text-[9px] px-2 py-0.5 rounded-full font-bold">Phổ biến</span>
+                                </div>
+                                <div id="hdr-price-pro" class="text-kov-blue text-sm font-black mt-0.5">330.000 đ/tháng</div>
+                            </th>
+                            <th class="p-4 sm:p-5 text-xs font-extrabold text-slate-500 uppercase tracking-wider w-1/4">
+                                <div>Gói Cao Cấp</div>
+                                <div id="hdr-price-vip" class="text-kov-blue text-sm font-black mt-0.5">490.000 đ/tháng</div>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody id="pricing-table-body" class="divide-y divide-slate-100 text-sm">
+                        <!-- Populated by JS based on Industry -->
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="mt-8 text-center">
+                <a href="#lien-he" class="inline-flex items-center justify-center px-8 py-3.5 bg-kov-blue hover:bg-kov-dark text-white font-bold rounded-full shadow-lg shadow-blue-500/20 transition">
+                    Liên hệ tư vấn báo giá
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Combo Section -->
+    <section id="combo" class="py-16 px-4 bg-slate-50">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-12">
+                <span class="text-xs font-bold uppercase tracking-wider text-kov-blue bg-blue-50 px-3 py-1 rounded-full">
+                    COMBO TIẾT KIỆM
+                </span>
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-3">Máy POS + Phần mềm KiotViet</h2>
+                <p class="text-slate-500 text-sm mt-1">Giá combo trọn gói - Tối ưu chi phí đầu tư ban đầu cho cửa hàng</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Combo 1: D10 Pro -->
+                <div class="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm hover:shadow-md transition flex flex-col justify-between">
+                    <div>
+                        <div class="h-40 flex items-center justify-center bg-slate-50 rounded-xl mb-4 overflow-hidden p-2">
+                            <img src="https://images.unsplash.com/photo-1556742049-0a67c55c0c29?auto=format&fit=crop&w=400&q=80" alt="Combo D10 Pro" class="h-full object-contain mix-blend-multiply">
+                        </div>
+                        <span class="text-[10px] font-bold uppercase tracking-wider bg-slate-100 text-slate-600 px-2 py-0.5 rounded">Combo</span>
+                        <h3 class="font-extrabold text-slate-900 mt-2 text-base">Combo POS D10 Pro + phần mềm chuyên nghiệp</h3>
+                        <p class="text-xs text-slate-500 mt-1">Máy POS cảm ứng D10 Pro + 1 năm phần mềm chuyên nghiệp</p>
+                        <div class="mt-4">
+                            <span class="text-xs text-slate-400 block font-medium">Từ</span>
+                            <span class="text-2xl font-black text-kov-blue">8.200.000 đ</span>
+                        </div>
+                        <div class="mt-3 space-y-1 text-xs text-slate-500 border-t border-slate-100 pt-3">
+                            <div class="flex justify-between"><span>1 Năm:</span><span class="font-semibold text-slate-800">8.200.000 đ</span></div>
+                            <div class="flex justify-between"><span>2 Năm:</span><span class="font-semibold text-slate-800">10.300.000 đ</span></div>
+                            <div class="flex justify-between"><span>3 Năm:</span><span class="font-semibold text-slate-800">12.500.000 đ</span></div>
+                        </div>
+                    </div>
+                    <button onclick="openLeadModal('Combo POS D10 Pro')" class="w-full mt-6 py-2.5 bg-kov-blue hover:bg-kov-dark text-white font-bold rounded-xl text-xs transition">
+                        Xem combo
+                    </button>
+                </div>
+
+                <!-- Combo 2: KV68 -->
+                <div class="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm hover:shadow-md transition flex flex-col justify-between">
+                    <div>
+                        <div class="h-40 flex items-center justify-center bg-slate-50 rounded-xl mb-4 overflow-hidden p-2">
+                            <img src="https://images.unsplash.com/photo-1580910051074-3eb694886505?auto=format&fit=crop&w=400&q=80" alt="Combo KV68" class="h-full object-contain mix-blend-multiply">
+                        </div>
+                        <span class="text-[10px] font-bold uppercase tracking-wider bg-slate-100 text-slate-600 px-2 py-0.5 rounded">Combo</span>
+                        <h3 class="font-extrabold text-slate-900 mt-2 text-base">Combo POS cầm tay KV68 + phần mềm</h3>
+                        <p class="text-xs text-slate-500 mt-1">Máy POS cầm tay in bill tích hợp + 1 năm phần mềm chuyên nghiệp</p>
+                        <div class="mt-4">
+                            <span class="text-xs text-slate-400 block font-medium">Từ</span>
+                            <span class="text-2xl font-black text-kov-blue">6.900.000 đ</span>
+                        </div>
+                        <div class="mt-3 space-y-1 text-xs text-slate-500 border-t border-slate-100 pt-3">
+                            <div class="flex justify-between"><span>1 Năm:</span><span class="font-semibold text-slate-800">6.900.000 đ</span></div>
+                            <div class="flex justify-between"><span>2 Năm:</span><span class="font-semibold text-slate-800">9.300.000 đ</span></div>
+                            <div class="flex justify-between"><span>3 Năm:</span><span class="font-semibold text-slate-800">11.600.000 đ</span></div>
+                        </div>
+                    </div>
+                    <button onclick="openLeadModal('Combo POS cầm tay KV68')" class="w-full mt-6 py-2.5 bg-kov-blue hover:bg-kov-dark text-white font-bold rounded-xl text-xs transition">
+                        Xem combo
+                    </button>
+                </div>
+
+                <!-- Combo 3: D68 Single -->
+                <div class="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm hover:shadow-md transition flex flex-col justify-between">
+                    <div>
+                        <div class="h-40 flex items-center justify-center bg-slate-50 rounded-xl mb-4 overflow-hidden p-2">
+                            <img src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?auto=format&fit=crop&w=400&q=80" alt="Combo D68 Single" class="h-full object-contain mix-blend-multiply">
+                        </div>
+                        <span class="text-[10px] font-bold uppercase tracking-wider bg-slate-100 text-slate-600 px-2 py-0.5 rounded">Combo</span>
+                        <h3 class="font-extrabold text-slate-900 mt-2 text-base">Combo POS D68 Single + phần mềm</h3>
+                        <p class="text-xs text-slate-500 mt-1">Máy POS màn hình lớn 15.6 inch + 1 năm phần mềm chuyên nghiệp</p>
+                        <div class="mt-4">
+                            <span class="text-xs text-slate-400 block font-medium">Từ</span>
+                            <span class="text-2xl font-black text-kov-blue">9.600.000 đ</span>
+                        </div>
+                        <div class="mt-3 space-y-1 text-xs text-slate-500 border-t border-slate-100 pt-3">
+                            <div class="flex justify-between"><span>1 Năm:</span><span class="font-semibold text-slate-800">9.600.000 đ</span></div>
+                            <div class="flex justify-between"><span>2 Năm:</span><span class="font-semibold text-slate-800">11.800.000 đ</span></div>
+                            <div class="flex justify-between"><span>3 Năm:</span><span class="font-semibold text-slate-800">14.200.000 đ</span></div>
+                        </div>
+                    </div>
+                    <button onclick="openLeadModal('Combo POS D68 Single')" class="w-full mt-6 py-2.5 bg-kov-blue hover:bg-kov-dark text-white font-bold rounded-xl text-xs transition">
+                        Xem combo
+                    </button>
+                </div>
+
+                <!-- Combo 4: D68 Dual -->
+                <div class="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm hover:shadow-md transition flex flex-col justify-between">
+                    <div>
+                        <div class="h-40 flex items-center justify-center bg-slate-50 rounded-xl mb-4 overflow-hidden p-2">
+                            <img src="https://images.unsplash.com/photo-1556740758-90de374c12ad?auto=format&fit=crop&w=400&q=80" alt="Combo D68 Dual" class="h-full object-contain mix-blend-multiply">
+                        </div>
+                        <span class="text-[10px] font-bold uppercase tracking-wider bg-slate-100 text-slate-600 px-2 py-0.5 rounded">Combo</span>
+                        <h3 class="font-extrabold text-slate-900 mt-2 text-base">Combo POS D68 Dual + phần mềm</h3>
+                        <p class="text-xs text-slate-500 mt-1">Máy POS 2 màn hình sang trọng + 1 năm phần mềm chuyên nghiệp</p>
+                        <div class="mt-4">
+                            <span class="text-xs text-slate-400 block font-medium">Từ</span>
+                            <span class="text-2xl font-black text-kov-blue">11.300.000 đ</span>
+                        </div>
+                        <div class="mt-3 space-y-1 text-xs text-slate-500 border-t border-slate-100 pt-3">
+                            <div class="flex justify-between"><span>1 Năm:</span><span class="font-semibold text-slate-800">11.300.000 đ</span></div>
+                            <div class="flex justify-between"><span>2 Năm:</span><span class="font-semibold text-slate-800">13.500.000 đ</span></div>
+                            <div class="flex justify-between"><span>3 Năm:</span><span class="font-semibold text-slate-800">15.900.000 đ</span></div>
+                        </div>
+                    </div>
+                    <button onclick="openLeadModal('Combo POS D68 Dual')" class="w-full mt-6 py-2.5 bg-kov-blue hover:bg-kov-dark text-white font-bold rounded-xl text-xs transition">
+                        Xem combo
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Devices & Hardware Section -->
+    <section id="thiet-bi" class="py-16 px-4 bg-white border-b border-slate-200">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-12">
+                <span class="text-xs font-bold uppercase tracking-wider text-kov-blue bg-blue-50 px-3 py-1 rounded-full">
+                    THIẾT BỊ
+                </span>
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-3">Máy bán hàng & phụ kiện</h2>
+                <p class="text-slate-500 text-sm mt-1">POS, máy in, máy quét - tương thích hoàn hảo với phần mềm KiotViet</p>
+            </div>
+
+            <!-- Group 1: Máy bán hàng POS -->
+            <div class="mb-12">
+                <div class="flex justify-between items-center mb-6">
+                    <h3 class="text-lg font-bold text-slate-900">Máy bán hàng</h3>
+                    <span class="text-xs text-slate-400">4 sản phẩm</span>
+                </div>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <!-- Item -->
+                    <div onclick="openProductModal('Máy bán hàng D10 Pro', '5.690.000 đ', 'Màn hình cảm ứng 15.6 inch, thiết kế nguyên khối nhỏ gọn.')" class="bg-slate-50 border border-slate-200 rounded-2xl p-4 hover:border-kov-blue transition cursor-pointer">
+                        <div class="h-32 flex items-center justify-center bg-white rounded-xl mb-3 p-2">
+                            <i class="fa-solid fa-desktop text-3xl text-slate-400"></i>
+                        </div>
+                        <h4 class="font-bold text-sm text-slate-900 line-clamp-1">Máy bán hàng D10 Pro</h4>
+                        <div class="text-kov-blue font-black text-sm mt-1">5.690.000 đ</div>
+                    </div>
+                    <!-- Item -->
+                    <div onclick="openProductModal('Máy POS bán hàng model D2-Single', '5.990.000 đ', 'Cảm ứng điện dung siêu nhạy, độ bền cao cho quầy thu ngân.')" class="bg-slate-50 border border-slate-200 rounded-2xl p-4 hover:border-kov-blue transition cursor-pointer">
+                        <div class="h-32 flex items-center justify-center bg-white rounded-xl mb-3 p-2">
+                            <i class="fa-solid fa-tv text-3xl text-slate-400"></i>
+                        </div>
+                        <h4 class="font-bold text-sm text-slate-900 line-clamp-1">Máy POS bán hàng model D2-Single</h4>
+                        <div class="text-kov-blue font-black text-sm mt-1">5.990.000 đ</div>
+                    </div>
+                    <!-- Item -->
+                    <div onclick="openProductModal('Máy POS bán hàng cầm tay model KV68', '4.990.000 đ', 'Tích hợp in hóa đơn ngay trên thân máy, cơ động tuyệt đối.')" class="bg-slate-50 border border-slate-200 rounded-2xl p-4 hover:border-kov-blue transition cursor-pointer">
+                        <div class="h-32 flex items-center justify-center bg-white rounded-xl mb-3 p-2">
+                            <i class="fa-solid fa-mobile-screen-button text-3xl text-slate-400"></i>
+                        </div>
+                        <h4 class="font-bold text-sm text-slate-900 line-clamp-1">Máy POS bán hàng cầm tay KV68</h4>
+                        <div class="text-kov-blue font-black text-sm mt-1">4.990.000 đ</div>
+                    </div>
+                    <!-- Item -->
+                    <div onclick="openProductModal('Máy bán hàng D68 Dual', '9.100.000 đ', '2 màn hình trước - sau: 1 cho nhân viên order, 1 cho khách xem bill và quét mã QR.')" class="bg-slate-50 border border-slate-200 rounded-2xl p-4 hover:border-kov-blue transition cursor-pointer">
+                        <div class="h-32 flex items-center justify-center bg-white rounded-xl mb-3 p-2">
+                            <i class="fa-solid fa-window-restore text-3xl text-slate-400"></i>
+                        </div>
+                        <h4 class="font-bold text-sm text-slate-900 line-clamp-1">Máy bán hàng D68 Dual</h4>
+                        <div class="text-kov-blue font-black text-sm mt-1">9.100.000 đ</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Group 2: Máy in hóa đơn & mã vạch -->
+            <div class="mb-12">
+                <div class="flex justify-between items-center mb-6">
+                    <h3 class="text-lg font-bold text-slate-900">Máy in hóa đơn, mã vạch</h3>
+                    <span class="text-xs text-slate-400">5 sản phẩm</span>
+                </div>
+                <div class="grid grid-cols-2 md:grid-cols-5 gap-4">
+                    <div onclick="openProductModal('Máy in nhiệt KiotViet 355B', '1.400.000 đ', 'In tem mã vạch sản phẩm, giá bán cho shop thời trang, tạp hóa.')" class="bg-slate-50 border border-slate-200 rounded-2xl p-4 hover:border-kov-blue transition cursor-pointer">
+                        <div class="h-28 flex items-center justify-center bg-white rounded-xl mb-3">
+                            <i class="fa-solid fa-print text-2xl text-slate-400"></i>
+                        </div>
+                        <h4 class="font-bold text-xs text-slate-900 line-clamp-1">Máy in nhiệt 355B</h4>
+                        <div class="text-kov-blue font-black text-xs mt-1">1.400.000 đ</div>
+                    </div>
+                    <div onclick="openProductModal('Máy in hóa đơn TY806', '1.400.000 đ', 'Máy in hóa đơn nhiệt K80 cổng LAN/USB tốc độ cao cho quầy thu ngân và quầy bar.')" class="bg-slate-50 border border-slate-200 rounded-2xl p-4 hover:border-kov-blue transition cursor-pointer">
+                        <div class="h-28 flex items-center justify-center bg-white rounded-xl mb-3">
+                            <i class="fa-solid fa-receipt text-2xl text-slate-400"></i>
+                        </div>
+                        <h4 class="font-bold text-xs text-slate-900 line-clamp-1">Máy in hóa đơn TY806</h4>
+                        <div class="text-kov-blue font-black text-xs mt-1">1.400.000 đ</div>
+                    </div>
+                    <div onclick="openProductModal('Máy in tem bill KiotViet KV-K355', '1.490.000 đ', 'Máy in tem dán ly trà sữa, dán nhãn sản phẩm chính hãng KiotViet.')" class="bg-slate-50 border border-slate-200 rounded-2xl p-4 hover:border-kov-blue transition cursor-pointer">
+                        <div class="h-28 flex items-center justify-center bg-white rounded-xl mb-3">
+                            <i class="fa-solid fa-tags text-2xl text-slate-400"></i>
+                        </div>
+                        <h4 class="font-bold text-xs text-slate-900 line-clamp-1">Máy in tem bill KV-K355</h4>
+                        <div class="text-kov-blue font-black text-xs mt-1">1.490.000 đ</div>
+                    </div>
+                    <div onclick="openProductModal('Máy in hóa đơn cầm tay KV500', '599.000 đ', 'Máy in bill mini bluetooth không dây, dùng pin tiện lợi cho cafe mang đi.')" class="bg-slate-50 border border-slate-200 rounded-2xl p-4 hover:border-kov-blue transition cursor-pointer">
+                        <div class="h-28 flex items-center justify-center bg-white rounded-xl mb-3">
+                            <i class="fa-solid fa-fingerprint text-2xl text-slate-400"></i>
+                        </div>
+                        <h4 class="font-bold text-xs text-slate-900 line-clamp-1">Máy in cầm tay KV500</h4>
+                        <div class="text-kov-blue font-black text-xs mt-1">599.000 đ</div>
+                    </div>
+                    <div onclick="openProductModal('Máy in hóa đơn để bàn KV30', '599.000 đ', 'In bill để bàn nhỏ gọn, chuẩn kết nối USB cho shop bán lẻ.')" class="bg-slate-50 border border-slate-200 rounded-2xl p-4 hover:border-kov-blue transition cursor-pointer">
+                        <div class="h-28 flex items-center justify-center bg-white rounded-xl mb-3">
+                            <i class="fa-solid fa-box text-2xl text-slate-400"></i>
+                        </div>
+                        <h4 class="font-bold text-xs text-slate-900 line-clamp-1">Máy in để bàn KV30</h4>
+                        <div class="text-kov-blue font-black text-xs mt-1">599.000 đ</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Group 3: Thiết bị bán hàng khác & Màn hình hiển thị QR -->
+            <div>
+                <div class="flex justify-between items-center mb-6">
+                    <h3 class="text-lg font-bold text-slate-900">Thiết bị bán hàng khác</h3>
+                    <span class="text-xs text-slate-400">Xem tất cả</span>
+                </div>
+                <div class="grid grid-cols-2 md:grid-cols-6 gap-3">
+                    <div onclick="openProductModal('Màn hình hiển thị QR - KV99', '490.000 đ', 'Màn hình phụ điện tử hiển thị mã QR thanh toán động VietQR tự sinh số tiền cho khách.')" class="bg-slate-50 border border-slate-200 rounded-2xl p-3 hover:border-kov-blue transition cursor-pointer text-center">
+                        <div class="h-20 flex items-center justify-center bg-white rounded-xl mb-2">
+                            <i class="fa-solid fa-qrcode text-2xl text-kov-blue"></i>
+                        </div>
+                        <h4 class="font-bold text-xs text-slate-800 line-clamp-1">Màn hình QR KV99</h4>
+                        <div class="text-kov-blue font-black text-xs mt-0.5">490.000 đ</div>
+                    </div>
+                    <div onclick="openProductModal('Loa thông báo thanh toán QR KV01', '600.000 đ', 'Loa phát âm thanh đọc số tiền khi khách hàng chuyển khoản thành công.')" class="bg-slate-50 border border-slate-200 rounded-2xl p-3 hover:border-kov-blue transition cursor-pointer text-center">
+                        <div class="h-20 flex items-center justify-center bg-white rounded-xl mb-2">
+                            <i class="fa-solid fa-volume-high text-2xl text-slate-500"></i>
+                        </div>
+                        <h4 class="font-bold text-xs text-slate-800 line-clamp-1">Loa báo QR KV01</h4>
+                        <div class="text-kov-blue font-black text-xs mt-0.5">600.000 đ</div>
+                    </div>
+                    <div onclick="openProductModal('Máy quét mã vạch XL-2302', '1.600.000 đ', 'Máy quét đa tia để bàn quét siêu nhanh mã 1D và QR 2D.')" class="bg-slate-50 border border-slate-200 rounded-2xl p-3 hover:border-kov-blue transition cursor-pointer text-center">
+                        <div class="h-20 flex items-center justify-center bg-white rounded-xl mb-2">
+                            <i class="fa-solid fa-barcode text-2xl text-slate-500"></i>
+                        </div>
+                        <h4 class="font-bold text-xs text-slate-800 line-clamp-1">Máy quét XL-2302</h4>
+                        <div class="text-kov-blue font-black text-xs mt-0.5">1.600.000 đ</div>
+                    </div>
+                    <div onclick="openProductModal('Máy chấm công vân tay RJ500', '1.200.000 đ', 'Đồng bộ dữ liệu chấm công nhân viên tự động vào phần mềm KiotViet.')" class="bg-slate-50 border border-slate-200 rounded-2xl p-3 hover:border-kov-blue transition cursor-pointer text-center">
+                        <div class="h-20 flex items-center justify-center bg-white rounded-xl mb-2">
+                            <i class="fa-solid fa-id-card text-2xl text-slate-500"></i>
+                        </div>
+                        <h4 class="font-bold text-xs text-slate-800 line-clamp-1">Máy chấm công RJ500</h4>
+                        <div class="text-kov-blue font-black text-xs mt-0.5">1.200.000 đ</div>
+                    </div>
+                    <div onclick="openProductModal('Giấy in bill nhiệt K80', '325.000 đ', 'Thùng 50 cuộn giấy in nhiệt bọc bạc chống ẩm, chất lượng cao.')" class="bg-slate-50 border border-slate-200 rounded-2xl p-3 hover:border-kov-blue transition cursor-pointer text-center">
+                        <div class="h-20 flex items-center justify-center bg-white rounded-xl mb-2">
+                            <i class="fa-solid fa-scroll text-2xl text-slate-500"></i>
+                        </div>
+                        <h4 class="font-bold text-xs text-slate-800 line-clamp-1">Giấy in K80 (Thùng)</h4>
+                        <div class="text-kov-blue font-black text-xs mt-0.5">325.000 đ</div>
+                    </div>
+                    <div onclick="openProductModal('Khay đựng tiền thu ngân', '950.000 đ', 'Két đựng tiền tự động bật mở khi in bill, 4-5 ngăn tiền giấy.')" class="bg-slate-50 border border-slate-200 rounded-2xl p-3 hover:border-kov-blue transition cursor-pointer text-center">
+                        <div class="h-20 flex items-center justify-center bg-white rounded-xl mb-2">
+                            <i class="fa-solid fa-vault text-2xl text-slate-500"></i>
+                        </div>
+                        <h4 class="font-bold text-xs text-slate-800 line-clamp-1">Khay đựng tiền</h4>
+                        <div class="text-kov-blue font-black text-xs mt-0.5">950.000 đ</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bank Voucher Section -->
+    <section id="voucher" class="py-16 px-4 bg-slate-50">
+        <div class="max-w-4xl mx-auto text-center">
+            <span class="text-xs font-bold uppercase tracking-wider text-kov-blue bg-blue-50 px-3 py-1 rounded-full">
+                ƯU ĐÃI
+            </span>
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-3">Voucher ngân hàng & Đối tác</h2>
+            <p class="text-slate-500 text-sm mt-1">Các ngân hàng đang hỗ trợ hoàn tiền hoặc tặng voucher khi kích hoạt phần mềm KiotViet</p>
+
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-8">
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex flex-col items-center">
+                    <div class="h-12 flex items-center font-black text-green-700 text-lg">Vietcombank</div>
+                    <div class="text-xs font-bold text-slate-700 mt-2">Hoàn tiền lên tới 1.000.000 đ</div>
+                    <span class="text-[11px] text-slate-400 mt-1">Cho tài khoản HKD / Doanh nghiệp</span>
+                </div>
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex flex-col items-center">
+                    <div class="h-12 flex items-center font-black text-red-600 text-lg">Techcombank</div>
+                    <div class="text-xs font-bold text-slate-700 mt-2">Tặng voucher phí phần mềm</div>
+                    <span class="text-[11px] text-slate-400 mt-1">Hỗ trợ mở tài khoản số đẹp</span>
+                </div>
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex flex-col items-center">
+                    <div class="h-12 flex items-center font-black text-blue-700 text-lg">MB Bank</div>
+                    <div class="text-xs font-bold text-slate-700 mt-2">Miễn phí tích hợp VietQR PRO</div>
+                    <span class="text-[11px] text-slate-400 mt-1">Loa báo thanh toán tự động</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Lead Form Section -->
+    <section id="lien-he" class="py-16 px-4 bg-white border-t border-slate-200">
+        <div class="max-w-4xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-5 gap-10 items-start">
+                <!-- Left info -->
+                <div class="md:col-span-2 space-y-4">
+                    <span class="text-xs font-bold uppercase tracking-wider text-kov-blue bg-blue-50 px-3 py-1 rounded-full">
+                        LIÊN HỆ TẬN TÂM
+                    </span>
+                    <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 leading-tight">
+                        Nhận báo giá chi tiết
+                    </h2>
+                    <p class="text-slate-500 text-sm">
+                        Để lại thông tin - em Nghiêm sẽ liên hệ tư vấn đúng ngành, đúng quy mô, không chèo kéo.
+                    </p>
+                    <div class="space-y-2 pt-2 text-xs text-slate-600 font-medium">
+                        <div class="flex items-center gap-2">
+                            <i class="fa-solid fa-circle-check text-green-500"></i>
+                            <span>Báo giá trọn gói phần mềm & thiết bị minh bạch</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i class="fa-solid fa-circle-check text-green-500"></i>
+                            <span>Đại lý / Chuyên viên KiotViet trực tiếp hỗ trợ</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i class="fa-solid fa-circle-check text-green-500"></i>
+                            <span>Hỗ trợ voucher ngân hàng giảm thêm chi phí</span>
+                        </div>
+                    </div>
+
+                    <!-- Direct Chat Links -->
+                    <div class="pt-4 border-t border-slate-100">
+                        <div class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-3">Nhắn trực tiếp nếu tiện hơn</div>
+                        <div class="space-y-2">
+                            <a href="tel:0931875665" class="flex items-center gap-3 p-3 bg-slate-50 rounded-xl hover:bg-blue-50 transition border border-slate-200">
+                                <div class="w-8 h-8 rounded-full bg-kov-blue text-white flex items-center justify-center text-xs">
+                                    <i class="fa-solid fa-phone"></i>
+                                </div>
+                                <div>
+                                    <div class="text-[10px] text-slate-400 font-bold uppercase">Gọi hotline trực tiếp</div>
+                                    <div class="text-sm font-extrabold text-slate-900">0931 875 665</div>
+                                </div>
+                            </a>
+                            <a href="https://zalo.me/0931875665" target="_blank" class="flex items-center gap-3 p-3 bg-slate-50 rounded-xl hover:bg-green-50 transition border border-slate-200">
+                                <div class="w-8 h-8 rounded-full bg-kov-green text-white flex items-center justify-center text-xs font-bold">
+                                    Z
+                                </div>
+                                <div>
+                                    <div class="text-[10px] text-slate-400 font-bold uppercase">Nhắn qua Zalo</div>
+                                    <div class="text-sm font-extrabold text-slate-900">Zalo: 0931 875 665</div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Form -->
+                <div class="md:col-span-3 bg-slate-50 border border-slate-200 rounded-3xl p-6 sm:p-8 shadow-sm">
+                    <form onsubmit="handleFormSubmit(event)" class="space-y-4">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-bold text-slate-700 mb-1">Họ và tên *</label>
+                                <input type="text" id="lead-name" required placeholder="Nguyễn Văn A" class="w-full px-4 py-2.5 bg-white border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-kov-blue">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-slate-700 mb-1">Số điện thoại *</label>
+                                <input type="tel" id="lead-phone" required placeholder="09xx xxx xxx" class="w-full px-4 py-2.5 bg-white border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-kov-blue">
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-bold text-slate-700 mb-1">Ngành hàng</label>
+                                <select id="lead-industry" class="w-full px-4 py-2.5 bg-white border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-kov-blue">
+                                    <option value="F&B (Cafe, Trà sữa, Nhà hàng)">Ăn uống, F&B</option>
+                                    <option value="Bán lẻ, Tạp hóa, Thời trang">Bán lẻ, Tạp hóa</option>
+                                    <option value="Salon, Barbershop, Spa">Salon tóc, Spa</option>
+                                    <option value="Khách sạn, Lưu trú">Khách sạn, Nhà nghỉ</option>
+                                    <option value="Khác">Ngành nghề khác</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-slate-700 mb-1">Quy mô cửa hàng</label>
+                                <select id="lead-scale" class="w-full px-4 py-2.5 bg-white border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-kov-blue">
+                                    <option value="Chuẩn bị mở quán">Chuẩn bị mở quán</option>
+                                    <option value="1 chi nhánh">1 chi nhánh</option>
+                                    <option value="2-5 chi nhánh">2 - 5 chi nhánh</option>
+                                    <option value="Trên 5 chi nhánh">Trên 5 chi nhánh</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 mb-1">Ghi chú thêm (Tùy chọn)</label>
+                            <textarea id="lead-note" rows="3" placeholder="Ví dụ: Cần tư vấn combo máy POS + in bill cho quán cafe tại TP.HCM" class="w-full px-4 py-2.5 bg-white border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-kov-blue"></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full py-3.5 bg-kov-blue hover:bg-kov-dark text-white font-extrabold rounded-xl shadow-lg shadow-blue-500/25 transition text-sm">
+                            Gửi yêu cầu báo giá
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-slate-200 py-8 px-4 text-center">
+        <div class="max-w-4xl mx-auto space-y-2">
+            <div class="text-sm font-extrabold text-slate-800">Báo giá KiotViet - Thanh Nghiêm KiotViet</div>
+            <div class="text-xs text-slate-500">Tư vấn báo giá phần mềm & thiết bị bán hàng chính hãng tận nơi</div>
+            <div class="text-xs text-slate-400">Hotline: 0931 875 665 • Đồng hành cùng hộ kinh doanh toàn quốc</div>
+        </div>
+    </footer>
+
+    <!-- Floating Contact Badge (Bottom Right) -->
+    <div class="fixed bottom-5 right-5 z-50 flex items-center gap-2">
+        <a href="https://zalo.me/0931875665" target="_blank" class="bg-kov-blue hover:bg-kov-dark text-white px-4 py-3 rounded-full shadow-2xl flex items-center gap-2.5 border-2 border-white transition transform hover:scale-105">
+            <div class="w-7 h-7 rounded-full bg-white text-kov-blue flex items-center justify-center font-black text-xs">
+                TN
+            </div>
+            <div class="text-left hidden sm:block">
+                <div class="text-[10px] uppercase font-bold text-blue-200 leading-none">Chuyên viên hỗ trợ</div>
+                <div class="text-xs font-extrabold leading-tight">Thanh Nghiêm - KiotViet</div>
+            </div>
+        </a>
+    </div>
+
+    <!-- Product / Detail Modal -->
+    <div id="product-modal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-lg w-full p-6 sm:p-8 relative shadow-2xl animate-fade-in">
+            <button onclick="closeProductModal()" class="absolute top-5 right-5 w-8 h-8 rounded-full bg-slate-100 text-slate-500 hover:bg-slate-200 flex items-center justify-center">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <span class="text-[10px] font-bold uppercase tracking-wider text-kov-blue bg-blue-50 px-2.5 py-0.5 rounded-full">Chi tiết thiết bị</span>
+            <h3 id="modal-title" class="text-xl font-extrabold text-slate-900 mt-2">Tên thiết bị</h3>
+            <div id="modal-price" class="text-2xl font-black text-kov-blue mt-1">0 đ</div>
+            <p id="modal-desc" class="text-sm text-slate-600 mt-3 bg-slate-50 p-4 rounded-xl border border-slate-100 leading-relaxed">
+                Mô tả sản phẩm...
+            </p>
+            <div class="mt-6 flex gap-3">
+                <a id="modal-zalo-btn" href="https://zalo.me/0931875665" target="_blank" class="flex-1 py-3 bg-kov-blue hover:bg-kov-dark text-white text-center font-bold rounded-xl text-xs transition">
+                    Liên hệ tư vấn ngay
+                </a>
+                <button onclick="closeProductModal()" class="px-5 py-3 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold rounded-xl text-xs transition">
+                    Đóng
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Interactive Logic Script -->
+    <script>
+        // Data for Industry Pricing Table
+        const pricingData = {
+            retail: {
+                name: "Phân phối, bán lẻ",
+                basicPrice: "210.000 đ/tháng",
+                proPrice: "330.000 đ/tháng",
+                vipPrice: "490.000 đ/tháng",
+                rows: [
+                    {
+                        term: "1 Năm",
+                        basic: { price: "2.520.000 đ", gift: "Tặng 02 tháng sử dụng" },
+                        pro: { price: "3.960.000 đ", gift: "Tặng 02 tháng sử dụng + 01 máy quét mã vạch" },
+                        vip: { price: "5.880.000 đ", gift: "Tặng 03 tháng sử dụng + máy in hóa đơn" }
+                    },
+                    {
+                        term: "2 Năm",
+                        basic: { price: "5.040.000 đ", gift: "Tặng 04 tháng sử dụng" },
+                        pro: { price: "7.920.000 đ", gift: "Tặng 06 tháng + máy quét mã vạch XL-2302" },
+                        vip: { price: "11.760.000 đ", gift: "Tặng 08 tháng + voucher 1.000.000 đ" }
+                    },
+                    {
+                        term: "3 Năm",
+                        basic: { price: "7.560.000 đ", gift: "Tặng 06 tháng sử dụng" },
+                        pro: { price: "11.880.000 đ", gift: "Tặng 12 tháng + hỗ trợ khởi tạo dữ liệu miễn phí" },
+                        vip: { price: "17.640.000 đ", gift: "Tặng 15 tháng + trọn bộ thiết bị" }
+                    },
+                    {
+                        term: "5 Năm",
+                        basic: { price: "12.600.000 đ", gift: "Tặng 12 tháng sử dụng" },
+                        pro: { price: "19.800.000 đ", gift: "Tặng 24 tháng sử dụng trọn đời bảo hành" },
+                        vip: { price: "29.400.000 đ", gift: "Tặng 30 tháng sử dụng cao cấp" }
+                    }
+                ]
+            },
+            fnb: {
+                name: "Ăn uống, giải trí",
+                basicPrice: "210.000 đ/tháng",
+                proPrice: "330.000 đ/tháng",
+                vipPrice: "490.000 đ/tháng",
+                rows: [
+                    {
+                        term: "1 Năm",
+                        basic: { price: "2.440.000 đ", gift: "Tặng 02 tháng sử dụng" },
+                        pro: { price: "2.960.000 đ", gift: "Tặng 02 tháng + hỗ trợ gõ thực đơn menu" },
+                        vip: { price: "4.880.000 đ", gift: "Tặng 03 tháng + máy in bill bếp K80" }
+                    },
+                    {
+                        term: "2 Năm",
+                        basic: { price: "5.480.000 đ", gift: "Tặng 04 tháng sử dụng" },
+                        pro: { price: "6.920.000 đ", gift: "Tặng 06 tháng + máy in bếp TY806" },
+                        vip: { price: "10.760.000 đ", gift: "Tặng 08 tháng + voucher 1.000.000 đ" }
+                    },
+                    {
+                        term: "3 Năm",
+                        basic: { price: "8.720.000 đ", gift: "Tặng 06 tháng sử dụng" },
+                        pro: { price: "10.880.000 đ", gift: "Tặng 12 tháng + bảng QR động KV99" },
+                        vip: { price: "16.140.000 đ", gift: "Tặng 15 tháng + combo thiết bị" }
+                    },
+                    {
+                        term: "5 Năm",
+                        basic: { price: "12.000.000 đ", gift: "Tặng 12 tháng sử dụng" },
+                        pro: { price: "15.000.000 đ", gift: "Tặng 24 tháng sử dụng" },
+                        vip: { price: "23.200.000 đ", gift: "Tặng 30 tháng sử dụng" }
+                    }
+                ]
+            },
+            salon: {
+                name: "Sức khỏe, làm đẹp",
+                basicPrice: "210.000 đ/tháng",
+                proPrice: "330.000 đ/tháng",
+                vipPrice: "490.000 đ/tháng",
+                rows: [
+                    {
+                        term: "1 Năm",
+                        basic: { price: "2.440.000 đ", gift: "Tặng 02 tháng sử dụng" },
+                        pro: { price: "2.960.000 đ", gift: "Tặng 02 tháng + tính năng hoa hồng thợ" },
+                        vip: { price: "4.880.000 đ", gift: "Tặng 03 tháng + gói đặt lịch hẹn online" }
+                    },
+                    {
+                        term: "2 Năm",
+                        basic: { price: "5.480.000 đ", gift: "Tặng 04 tháng sử dụng" },
+                        pro: { price: "6.920.000 đ", gift: "Tặng 06 tháng + máy in bill mini" },
+                        vip: { price: "10.760.000 đ", gift: "Tặng 08 tháng sử dụng" }
+                    },
+                    {
+                        term: "3 Năm",
+                        basic: { price: "8.720.000 đ", gift: "Tặng 06 tháng sử dụng" },
+                        pro: { price: "10.880.000 đ", gift: "Tặng 12 tháng sử dụng" },
+                        vip: { price: "16.140.000 đ", gift: "Tặng 15 tháng sử dụng" }
+                    },
+                    {
+                        term: "5 Năm",
+                        basic: { price: "12.000.000 đ", gift: "Tặng 12 tháng sử dụng" },
+                        pro: { price: "15.000.000 đ", gift: "Tặng 24 tháng sử dụng" },
+                        vip: { price: "23.200.000 đ", gift: "Tặng 30 tháng sử dụng" }
+                    }
+                ]
+            },
+            hotel: {
+                name: "Lưu trú, phòng nghỉ",
+                basicPrice: "230.000 đ/tháng",
+                proPrice: "350.000 đ/tháng",
+                vipPrice: "520.000 đ/tháng",
+                rows: [
+                    {
+                        term: "1 Năm",
+                        basic: { price: "2.760.000 đ", gift: "Tặng 02 tháng sử dụng" },
+                        pro: { price: "4.200.000 đ", gift: "Tặng 02 tháng + sơ đồ phòng trực quan" },
+                        vip: { price: "6.240.000 đ", gift: "Tặng 03 tháng sử dụng" }
+                    },
+                    {
+                        term: "2 Năm",
+                        basic: { price: "5.520.000 đ", gift: "Tặng 04 tháng sử dụng" },
+                        pro: { price: "8.400.000 đ", gift: "Tặng 06 tháng sử dụng" },
+                        vip: { price: "12.480.000 đ", gift: "Tặng 08 tháng sử dụng" }
+                    },
+                    {
+                        term: "3 Năm",
+                        basic: { price: "8.280.000 đ", gift: "Tặng 06 tháng sử dụng" },
+                        pro: { price: "12.600.000 đ", gift: "Tặng 12 tháng sử dụng" },
+                        vip: { price: "18.720.000 đ", gift: "Tặng 15 tháng sử dụng" }
+                    },
+                    {
+                        term: "5 Năm",
+                        basic: { price: "13.800.000 đ", gift: "Tặng 12 tháng sử dụng" },
+                        pro: { price: "21.000.000 đ", gift: "Tặng 24 tháng sử dụng" },
+                        vip: { price: "31.200.000 đ", gift: "Tặng 30 tháng sử dụng" }
+                    }
+                ]
+            }
+        };
+
+        // Render Table Rows
+        function renderTable(industryKey) {
+            const data = pricingData[industryKey];
+            document.getElementById('hdr-price-basic').innerText = data.basicPrice;
+            document.getElementById('hdr-price-pro').innerText = data.proPrice;
+            document.getElementById('hdr-price-vip').innerText = data.vipPrice;
+
+            const tbody = document.getElementById('pricing-table-body');
+            tbody.innerHTML = '';
+
+            data.rows.forEach(r => {
+                const tr = document.createElement('tr');
+                tr.className = "hover:bg-slate-50/80 transition";
+                tr.innerHTML = `
+                    <td class="p-4 sm:p-5 font-bold text-slate-900 border-b border-slate-100">${r.term}</td>
+                    <td class="p-4 sm:p-5 border-b border-slate-100">
+                        <div class="font-bold text-slate-800">${r.basic.price}</div>
+                        <div class="text-[11px] text-slate-500 mt-0.5">• ${r.basic.gift}</div>
+                    </td>
+                    <td class="p-4 sm:p-5 border-b border-slate-100 bg-blue-50/30">
+                        <div class="font-extrabold text-kov-blue text-base">${r.pro.price}</div>
+                        <div class="text-[11px] text-blue-700 mt-0.5 font-medium">• ${r.pro.gift}</div>
+                    </td>
+                    <td class="p-4 sm:p-5 border-b border-slate-100">
+                        <div class="font-bold text-slate-800">${r.vip.price}</div>
+                        <div class="text-[11px] text-slate-500 mt-0.5">• ${r.vip.gift}</div>
+                    </td>
+                `;
+                tbody.appendChild(tr);
+            });
+        }
+
+        // Switch Industry Tabs
+        function switchIndustry(key) {
+            document.querySelectorAll('.industry-tab').forEach(b => {
+                b.classList.remove('active-tab');
+                b.classList.add('text-slate-600');
+            });
+            const activeBtn = document.getElementById('ind-' + key);
+            activeBtn.classList.add('active-tab');
+            activeBtn.classList.remove('text-slate-600');
+            renderTable(key);
+        }
+
+        // Switch Quick Package Card
+        function switchQuickPackage(type) {
+            document.getElementById('tab-quick-basic').classList.remove('active-tab');
+            document.getElementById('tab-quick-pro').classList.remove('active-tab');
+            document.getElementById('tab-quick-vip').classList.remove('active-tab');
+
+            const title = document.getElementById('quick-pkg-title');
+            const desc = document.getElementById('quick-pkg-desc');
+            const price = document.getElementById('quick-pkg-price');
+            const subprice = document.getElementById('quick-pkg-subprice');
+
+            if (type === 'basic') {
+                document.getElementById('tab-quick-basic').classList.add('active-tab');
+                title.innerText = "Gói hỗ trợ";
+                desc.innerText = "Phù hợp cho các cửa hàng mới mở quy mô nhỏ, nhu cầu bán hàng và quản lý doanh thu cơ bản.";
+                price.innerText = "210.000";
+                subprice.innerText = "Gói 1 năm: 2.520.000 đ";
+            } else if (type === 'pro') {
+                document.getElementById('tab-quick-pro').classList.add('active-tab');
+                title.innerText = "Gói chuyên nghiệp";
+                desc.innerText = "Cho các cửa hàng vận hành chuyên nghiệp. Phù hợp cho khách chọn máy POS hoặc mô hình chuỗi nhiều chi nhánh.";
+                price.innerText = "330.000";
+                subprice.innerText = "Gói 1 năm: 3.960.000 đ";
+            } else if (type === 'vip') {
+                document.getElementById('tab-quick-vip').classList.add('active-tab');
+                title.innerText = "Gói cao cấp";
+                desc.innerText = "Dành cho chuỗi kinh doanh lớn, nhà hàng nhiều tầng, cần tính năng chuyên sâu và hỗ trợ kỹ thuật ưu tiên.";
+                price.innerText = "490.000";
+                subprice.innerText = "Gói 1 năm: 5.880.000 đ";
+            }
+        }
+
+        // Modals
+        function openProductModal(title, price, desc) {
+            document.getElementById('modal-title').innerText = title;
+            document.getElementById('modal-price').innerText = price;
+            document.getElementById('modal-desc').innerText = desc;
+            document.getElementById('modal-zalo-btn').href = "https://zalo.me/0931875665?text=" + encodeURIComponent("Em Nghiêm tư vấn giúp anh/chị thiết bị: " + title);
+            document.getElementById('product-modal').classList.remove('hidden');
+        }
+
+        function closeProductModal() {
+            document.getElementById('product-modal').classList.add('hidden');
+        }
+
+        function openLeadModal(comboName) {
+            document.getElementById('lead-note').value = "Quan tâm: " + comboName;
+            document.getElementById('lien-he').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            const name = document.getElementById('lead-name').value;
+            const phone = document.getElementById('lead-phone').value;
+            const ind = document.getElementById('lead-industry').value;
+            const note = document.getElementById('lead-note').value;
+            
+            const msg = `Khách gửi yêu cầu báo giá:\n- Tên: ${name}\n- SĐT: ${phone}\n- Ngành: ${ind}\n- Ghi chú: ${note}`;
+            alert("Cảm ơn anh/chị " + name + "! Em Nghiêm (0931 875 665) đã nhận được thông tin và sẽ liên hệ tư vấn trong ít phút.");
+            // Direct to Zalo with prefilled text
+            window.open("https://zalo.me/0931875665?text=" + encodeURIComponent(msg), '_blank');
+        }
+
+        // Init default table
+        renderTable('retail');
+    </script>
+</body>
+</html>
